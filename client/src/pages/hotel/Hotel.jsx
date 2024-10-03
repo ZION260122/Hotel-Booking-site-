@@ -113,16 +113,20 @@ const Hotel = () => {
               free airport taxi
             </span>
             <div className="hotelImages">
-              {(data.photos || []).map((photo, i) => (
-                <div className="hotelImgWrapper" key={i}>
-                  <img
-                    onClick={() => handleOpen(i)}
-                    src={photo}
-                    alt=""
-                    className="hotelImg"
-                  />
-                </div>
-              ))}
+              {Array.isArray(data.photos) && data.photos.length > 0 ? (
+                data.photos.map((photo, i) => (
+                  <div className="hotelImgWrapper" key={i}>
+                    <img
+                      onClick={() => handleOpen(i)}
+                      src={photo}
+                      alt=""
+                      className="hotelImg"
+                    />
+                  </div>
+                ))
+              ) : (
+                <p>No images available</p>
+              )}
             </div>
             <div className="hotelDetails">
               <div className="hotelDetailsTexts">
