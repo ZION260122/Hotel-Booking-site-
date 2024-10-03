@@ -108,14 +108,14 @@ const List = () => {
           <div className="listResult">
             {loading ? (
               "loading"
-            ) : error ? (
-              <div>Error loading data.</div>
             ) : (
               <>
-                {Array.isArray(data) && data.length > 0 ? (
-                  data.map((item) => <SearchItem item={item} key={item._id} />)
+                {Array.isArray(data) && data.length > 0 ? ( // Ensure data is an array
+                  data.map((item) => (
+                    <SearchItem item={item} key={item._id} />
+                  ))
                 ) : (
-                  <div>No results found.</div>
+                  <p>No hotels available</p> // Message if no hotels found
                 )}
               </>
             )}

@@ -86,7 +86,7 @@ const Hotel = () => {
               />
               <div className="sliderWrapper">
                 <img
-                  src={data.photos[slideNumber]}
+                  src={data.photos?.[slideNumber]}
                   alt=""
                   className="sliderImg"
                 />
@@ -113,7 +113,7 @@ const Hotel = () => {
               free airport taxi
             </span>
             <div className="hotelImages">
-              {Array.isArray(data.photos) && data.photos.length > 0 ? (
+              {Array.isArray(data.photos) && data.photos.length > 0 ? ( // Ensure photos is an array
                 data.photos.map((photo, i) => (
                   <div className="hotelImgWrapper" key={i}>
                     <img
@@ -125,7 +125,7 @@ const Hotel = () => {
                   </div>
                 ))
               ) : (
-                <p>No images available</p>
+                <p>No photos available</p> // Display message if no photos
               )}
             </div>
             <div className="hotelDetails">

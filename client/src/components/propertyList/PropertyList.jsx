@@ -14,10 +14,14 @@ const PropertyList = () => {
         <p>{error.message}</p>
       ) : (
         <div className="propertyList">
-          {Array.isArray(data) && data.length > 0 ? (
-            data.map((property) => (
-              <PropertyItem property={property} key={property._id} />
-            ))
+          {Array.isArray(data) ? (
+            data.length > 0 ? (
+              data.map((property) => (
+                <PropertyItem property={property} key={property._id} />
+              ))
+            ) : (
+              <p>No properties available</p>
+            )
           ) : (
             <p>No properties available</p>
           )}
