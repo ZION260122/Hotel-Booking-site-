@@ -63,6 +63,7 @@ const Hotel = () => {
       navigate("/login");
     }
   };
+
   return (
     <div>
       <Navbar />
@@ -112,7 +113,7 @@ const Hotel = () => {
               free airport taxi
             </span>
             <div className="hotelImages">
-              {data.photos?.map((photo, i) => (
+              {(data.photos || []).map((photo, i) => (
                 <div className="hotelImgWrapper" key={i}>
                   <img
                     onClick={() => handleOpen(i)}
@@ -146,7 +147,7 @@ const Hotel = () => {
           <Footer />
         </div>
       )}
-      {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>}
+      {openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
     </div>
   );
 };
