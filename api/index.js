@@ -26,7 +26,7 @@ mongoose.connection.on("disconnected", () => {
 
 //middlewares
 app.use(cors({
-  origin: "https://hotel-book-now.vercel.app", // Allow your Vercel frontend
+  origin: "https://hotel-booking-site-psi.vercel.app/", // Allow your Vercel frontend
   credentials: true, // Allow credentials like cookies if you're using them
 }));
 app.use(cookieParser())
